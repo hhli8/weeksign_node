@@ -1,0 +1,212 @@
+html{
+	font-size:62.5%;
+	/*默认是16px*/
+	/*1.6rem==16px*/
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote{
+	margin:0;
+	padding:0;
+	font-family: "microsoft yahei";
+}
+textarea,button{font-family: "microsoft yahei";}
+li {
+  list-style: none;
+}
+img{
+	vertical-align: bottom;
+}
+a{
+	text-decoration: none;
+	outline: none;
+	color:#000;
+}
+/*自定义class*/
+/*normal-input*/
+.ipt-n,.btn-r{
+	padding: 10px 15px;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1.4rem;
+    box-shadow: 2px 5px 7px #888888;
+}
+.ipt-n{
+    border: 1px solid #ddd;
+    background:#fefefe;
+}
+/*red*/
+.btn-r{
+    border: 1px solid #df7366;
+    background:#df7366;
+    color:#fff;
+    transition: all linear 0.3s;
+    cursor: pointer;
+}
+.btn-r:active{
+	border: 1px solid #ef8376;
+    background: #ef8376;
+}
+.rt{float:right;}
+.lt{float:left;}
+.dn{display: none;}
+/*组件*/
+/*底部导航*/
+#nav{
+	background: #A1949B;
+	position: fixed;
+	/*该属性会清除浮动？*/
+	bottom: 0;
+	width:100%;
+	border-top: 1px solid #fff;
+	padding-top: 2px;
+	height: 40px;
+}
+#nav li{
+	display: inline-block;
+	width:20%;
+	text-align: center;
+	color:#fff;
+	float: left;
+}
+#nav .imgBox img{
+	width:24px;
+	transition: all linear 0.3s;
+}
+/*省略号*/
+.ellipsis i{
+	display: inline-block;
+	width:4px;
+	height: 4px;
+	border-radius: 50%;
+	background: #ddd;
+	margin-right: 3px;
+}
+/*提示*/
+#badWarn{
+	position: fixed;
+	left:50%;
+	top:40%;
+	transform: translate(-40%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	min-width:200px;
+	box-sizing: border-box;
+	padding: 10px 15px;
+	text-align: center;
+	background:rgba(0,0,0,0.8);
+	color:#fff;
+	z-index:1000;
+	border-radius: 10px;
+	display: none;
+	font-size: 1.5rem;
+}
+#waiting,#prompt{
+	position: fixed;
+	width:100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	top:0;
+	left:0;
+	z-index:2000;
+}
+#prompt{
+	background: rgba(0,0,0,0.5);
+	display: none;
+}
+#waiting .circle-box{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+#waiting .circle{
+	display: inline-block;
+	width: 20px;
+    height: 20px;
+    background-color: #fff;
+    /*h-shadow v-shadow blur spread color inset;*/
+    box-shadow: 0px 0px 5px 5px #fff;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+#waiting .circle:last-child{
+	margin-right: 0;
+}
+#waiting .circle:nth-child(1){
+	-webkit-animation: object_one 1.5s infinite;
+	animation: object_one 1.5s infinite;
+}
+#waiting .circle:nth-child(2){
+	-webkit-animation: object_two 1.5s infinite;
+	animation: object_two 1.5s infinite;
+	-webkit-animation-delay: 0.25s;
+	animation-delay: 0.25s;
+}
+#waiting .circle:nth-child(3){
+	-webkit-animation: object_three 1.5s infinite;
+	animation: object_three 1.5s infinite;
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+}
+@-webkit-keyframes object_one {
+	75% {
+		-webkit-transform: scale(0);
+	}
+}
+@keyframes object_one {
+	75% {
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+}
+@-webkit-keyframes object_two {
+	75% {
+		-webkit-transform: scale(0);
+	}
+}
+@keyframes object_two {
+	75% {
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+}
+@-webkit-keyframes object_three {
+	75% {
+		-webkit-transform: scale(0);
+	}
+}
+@keyframes object_three {
+	75% {
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+}
+/******************************确定的弹框  prompt********************************/
+#prompt .prompt{
+	background: #FFFFFF;
+	position: absolute;
+	top:60%;
+	left:50%;
+	transform: translate(-50%,-60%);
+	padding: 10px 15px;
+	font-size:1.4rem;
+	width:80%;
+	box-sizing: border-box;
+}
+#prompt .prompt .t{
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+#prompt .prompt .c{
+	color:#999;
+	padding-bottom: 20px;
+}
+#prompt .prompt .b{
+	text-align: right;
+	color:#4E88B6;
+}
+#prompt .prompt .b span{
+	display: inline-block;
+}
+#prompt .prompt .b span.yes{
+	margin-left: 20px;
+}

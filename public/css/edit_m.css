@@ -1,0 +1,27 @@
+#main{
+	padding: 20px;
+}
+#main>.title{
+	box-sizing: border-box;
+	width:100%;
+	margin-bottom: 10px;
+}
+#main>.content{
+	padding: 10px 16px;
+	font-size: 1.4rem;
+	outline: none;
+	border:1px solid #ddd;
+}
+#main>.content img{
+	max-width: 100%;
+}
+#submit{
+	padding: 20px;
+}
+#submit input{
+	margin-bottom: 8px;
+}
+#submit .login{
+	margin-right: 18px;
+}
+

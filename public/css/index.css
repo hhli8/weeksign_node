@@ -1,0 +1,421 @@
+html,body{
+	height: 100%;
+}
+#pageBox{
+	height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#pageBox .pageView{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    display: none;
+    padding-bottom: 43px;
+    box-sizing: border-box;
+}
+#pageBox .pageView.act{
+	display: block;
+}
+/****************************navHome**********************/
+#navHome{
+	background: #ddd;
+}
+#navHome li{
+	background: #fff;
+	margin-bottom: 10px;
+	padding: 15px 8px 10px 8px;
+}
+#navHome li .head .h-pic{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+#navHome li .head .h-pic img{
+	height: 40px;
+}
+#navHome li .head .name{
+	font-size: 1.6rem;
+}
+#navHome .ellipsis{
+	float: right;
+	padding-top: 10px;
+}
+#navHome .content .des{
+	font-size:1.4rem;
+	color: #8f8f94;
+	margin: 3px 0 10px 0;
+}
+#navHome .content a{display: inline-block;}
+#navHome .content img{
+	width:100%;
+}
+#navHome .content .pic-box2 a{
+	width:32%;
+	margin-right: 2%;
+	float: left;
+}
+#navHome .content .pic-box2,#navHome .content .pic-box3{
+	content: :'';
+	display: table;
+}
+#navHome .content .pic-box2 a:last-child,#navHome .content .pic-box3 a:last-child{
+	margin-right: 0;
+}
+#navHome .content .pic-box3 a{
+	width:49%;
+	float: left;
+	margin-right: 2%;
+}
+/************************************navPersonal*******************************************/
+#navPersonal{
+	background: #ddd;
+}
+#navPersonal .head{
+	text-align: center;
+	padding: 25px 0;
+	background: #fff;
+}
+#navPersonal .head .loginIn,#navPersonal .head .head-show{
+	display: inline-block;
+	width:60px;
+	height: 60px; line-height: 60px;
+	border-radius: 50%;
+	box-shadow: 0 0 6px 1px #A1949B;
+	vertical-align: bottom;
+}
+#navPersonal .head .loginIn{
+	background: #A1949B;
+	color:#fff;
+	font-size:1.6rem;
+}
+#navPersonal .head .head-show{
+	background: url(../imgs/defaultHead.jpg);
+	background-size: 100%;
+	background-position: center;
+}
+#navPersonal .head>div.hide{
+	display: none;
+}
+#navPersonal .options{
+	background: #fff;
+}
+#navPersonal .options li{
+	padding-left: 20px;
+	font-size: 1.4rem;
+}
+#navPersonal .options li>div,#navPersonal .options li:last-child{
+	border-bottom: 1px solid #ddd;
+}
+#navPersonal .options li>div{
+	padding: 6px 0;
+}
+#navPersonal .options li:last-child>div{
+	border:none;
+}
+
+
+/**************************************login***************************************/
+#login{
+	height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: url(../imgs/login/body.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 1000;
+    display: none;
+    color:#fff;
+}
+#login .header{
+	font-size: 3rem;
+	text-align: center;
+	padding-top: 30px;
+	font-family: cursive;
+	position: relative;
+}
+#login .header .back{
+	position: absolute;
+	right: 5px;
+	top:5px;
+	font-size:2rem;
+}
+#login .line{
+	position: relative;
+	margin: auto;
+	width:80%;
+	height:4px;
+	border-top: 1px solid rgba(192,192,192,0.35);
+	border-bottom: 1px solid rgba(192,192,192,0.35);
+	margin-top:2rem;
+}
+#login .line:before,#login .line:after{
+    content: '';
+    position: absolute;
+    top: -8px;
+    display: block;
+    width: 1px;
+    height: 21px;
+    background: rgba(192,192,192,0.35);
+}
+#login .line:after{
+	right:-1px;
+}
+#login .line:before{
+	left:-1px;
+}
+#login .ul-box{
+	text-align: center;
+}
+#login .ul-box ul{
+	display: inline-block;
+	text-align: left;
+	margin-top: 30px;
+	width:68%;
+}
+#login .ul-box ul.dn{display: none;}
+#login .ul-box ul li{
+	margin-top: 15px;
+	position: relative;
+}
+#login .ul-box ul li b.alert{
+	position: absolute;
+	right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: #df7366;
+    transition: all linear 0.2s;
+    opacity: 0;
+}
+#login .ul-box ul li b.alert.s{opacity: 1;}
+#login .ul-box ul li input,.ul-box ul li button{
+	width:100%;
+	box-sizing: border-box;
+}
+#login .switch{
+	font-size: 1.4rem;
+    color: #fff;
+    font-family:"arial black";
+    font-weight: bold;
+}
+#login .switch a{
+	color: #ef8376;
+}
+#login .rember-box .c,#login .forget .c{
+	display: inline-block;
+}
+#login .rember-box .c{
+	padding-left: 18px;
+}
+#login .rember-box{
+	display: inline-block;
+	position: relative;
+}
+#login .rember-box .rember{
+	width:auto;
+	width:16px;
+	height: 16px;
+	position: absolute;
+	left:0;
+	top:50%;
+	transform: translateY(-50%);
+}
+#login .ul-box ul li.other-login{margin-top: 110px;height: 40px;}
+#login .other-login a{
+	position: absolute;
+	display: inline-block;
+	width:40px;
+	height: 40px;
+	top:0;
+}
+#login .other-login a.wx{
+	left:0;
+	background: url(../imgs/login/58pic_52c2b94489df0wx.png) no-repeat;
+	background-size: 100%;
+}
+#login .other-login a.qq{
+	left:50%;
+	transform: translateX(-50%);
+	background: url(../imgs/login/58pic_52c2b94489df0qq.png) no-repeat;
+	background-size: 100%;
+}
+#login .other-login a.wb{
+	right:0;
+	background: url(../imgs/login/58pic_52c2b94489df0wb.png) no-repeat;
+	background-size: 100%;
+}
+#login .other-login-note{
+	position: relative;
+	top:-60px;
+	height: 1px;
+	background: rgba(192,192,192,0.35);
+}
+#login .other-login-note span{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	display: inline-block;
+	background: #695765;
+	width:100px;
+	border-radius: 5px;
+	padding: 3px 6px;
+}
+
+#login .ul-box ul li input.code{width:78px;}
+#login .ul-box ul li button.getCode{
+	width:118px;
+	font-family: "microsoft yahei"
+}
+#login .agr{
+	font-size:1.4rem;
+	color:#df7366;
+}
+/*******************************publish*****************************/
+#editor{
+	display: none;
+	height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1000;
+    background: #fff;
+}
+#editor .head-back{
+	top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    padding: 12px 15px;
+    box-shadow: 0px 8px 22px 2px #ddd;
+    line-height: 30px;
+    background: #fff;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+#editor .head-back .back {
+    display: inline-block;
+    height: 30px; line-height: 30px;
+    width: 30px;
+    position: relative;
+    vertical-align: bottom;
+}
+.head-back .back:before,.head-back .back:after{
+	display: inline-block;
+	height: 2px;
+	width:16px;
+	position: absolute;
+	background: #545654;
+	content:'';
+}
+#editor .head-back .back:before{
+	transform: rotate(140deg);
+	top:9px;	
+}
+#editor .head-back .back:after{
+	transform: rotate(-140deg);
+	bottom:9px;
+}
+#editor .head-back .title{
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+#editor .head-back .back:before,#editor .head-back .back:after{
+	background: #41BC52;
+}
+#editor .head-back .submit{ 
+	border:1px solid #41BC52;
+	color:#41BC52;
+	padding: 2px 8px;
+	border-radius: 5px;
+	right:15px;
+	top:50%;
+	transform: translateY(-50%);
+	display: inline-block;
+	position: absolute;
+	line-height: normal;
+	font-size: 15px;
+}
+#editor .content{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 69px 0px 60px 0px;
+}
+#editor .bottom{
+	box-sizing: border-box;
+	padding:5px 5%;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	background: #F6F6F6;
+}
+#editor .bottom span{
+	display: inline-block;
+	height: 26px;
+	width:26px;
+}
+#editor .bottom span.in{
+	background: url(../imgs/article/in.png);
+	background-size: 100%;
+}
+#editor .bottom span.takePhoto{
+	float: right;
+	background: url(../imgs/article/makePhoto.png);
+	background-size: 100%;
+	margin-left: 20px;
+}
+#editor .bottom span.chosePic{
+	float: right;
+	background: url(../imgs/article/chosePic.png);
+	background-size: 100%;
+	position: relative;
+}
+#editor .bottom span.chosePic input{
+	position: absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	visibility: hidden;
+	z-index: 1000;
+}
+#editor .content .title{
+	padding: 0 5%;
+	margin-bottom: 15px;
+}
+#editor .content .addNewTitle{
+	font-size: 22px;
+	width:100%;
+	padding: 5px 0;
+	border:none;
+	border-bottom: 1px solid #ddd;
+	outline: none;
+}
+#editor .content  input.addNewTitle::-webkit-input-placeholder {
+	color: #D6D0CA !important; 
+}
+#editor .content .article{
+	padding: 0 5%;
+	font-size: 16px;
+	position: relative;
+	outline: none;
+}
+#editor .content .article.none{
+	color:#A9A9A9;
+}

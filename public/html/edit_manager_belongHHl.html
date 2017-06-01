@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/edit_m.css" />
+	</head>
+	<body>
+		<div id="main">
+			<input class="title ipt-n" type="text" placeholder="添加标题"/><br/>
+			<div contenteditable="true" class="content">添加内容</div>
+			<input type="file" class="choseImg"/><br/>
+			<!--<img src="../images/cb.jpg" alt="" />-->
+		</div>
+		<div id="submit">
+			<input type="text" placeholder="选择类型" class="type ipt-n"/><br/>
+			<!--<input type="text" placeholder="图片链接" class="link ipt-n"/><br/>-->
+			<!--<textarea name="" rows="" cols="" placeholder="图片链接" class="link"></textarea><br/>-->
+			<!--  type:1-3   link: ;隔开    -->
+			<!--来源：用户提交的或者是转载的       userid/   -->
+			<input type="text" class="name ipt-n" placeholder="账号"/><br/>
+			<input type="text" class="psd ipt-n" placeholder="密码"/><br/>
+			<button class="submit btn-r">提交</button>
+		</div>
+	</body>
+	<script src="../js/jquery/jquery-3.1.1.min.js"></script>
+	<script src="../js/common.js"></script>
+	<script>
+		//图片存储问题
+		//1图片服务器存储
+		//存储到qq空间调取
+		//可以在任意文字后面插入图片
+		(function(){
+			$('#main img').click(function(){
+				$("#main>.content").focus();
+				var sy=$(this).attr('src');
+				var img_url ="<br/><img src='"+sy+"'/><br/>";
+				edit._insertimg(img_url);
+			});
+			$('#main .choseImg').change(function(){
+				$("#main>.content").focus();
+				//var sy=$(this).attr('src');
+				//var img_url ="<br/><img src='"+sy+"'/><br/>";
+				//edit._insertimg(img_url);
+				
+				var target=$('#main .choseImg')[0];
+				if(target.files && target.files[0]){
+					var img = target.files[0]; //console.log(img);  //可看文件大小
+					// 判断图片格式
+	        		if (!( img.type.indexOf('image') == 0 && img.type && /\.(?:jpg|png|gif)$/.test(img.name) ) ) {     
+	          			COM.warn('图片格式需为 jpg/gif/png');//二次选同一文件时没反应，没必要修正
+	          			return;
+	        		}
+	        		var reader = new FileReader();
+	        		reader.onload = function(evt){
+	        			var imgHtml='<br/><img src="'+evt.target.result+'"/><br/>';
+	        			edit._insertimg(imgHtml);
+	        		}
+	        		reader.readAsDataURL(target.files[0]);
+				}
+			});
+		})();
+		var edit={
+			_insertimg:function(str){
+				//锁定编辑器中鼠标光标位置。。
+				var selection = window.getSelection ? window.getSelection() : document.selection;
+				var range = selection.createRange ? selection.createRange() : selection.getRangeAt(0);
+				if(!window.getSelection) {//IE
+					range.pasteHTML(str);
+					range.collapse(false);
+					range.select();
+				}else{
+					range.collapse(false);
+					var hasR = range.createContextualFragment(str); //console.log(hasR);
+					var hasR_lastChild = hasR.lastChild; //console.log(hasR_lastChild);
+//					while(hasR_lastChild && hasR_lastChild.nodeName.toLowerCase() == "br" && hasR_lastChild.previousSibling && hasR_lastChild.previousSibling.nodeName.toLowerCase() == "br") {
+//						var e = hasR_lastChild;
+//						hasR_lastChild = hasR_lastChild.previousSibling;
+//						hasR.removeChild(e);
+//					}
+					range.insertNode(hasR);
+//					if(hasR_lastChild) {
+//						range.setEndAfter(hasR_lastChild);
+//						range.setStartAfter(hasR_lastChild);
+//					}
+//					selection.removeAllRanges();
+//					selection.addRange(range);
+				}
+			}
+		};
+		//提交---后台改不了，限定某几个账号为管理员就好
+		$('#submit .submit').click(function(){
+			var userid=COM.getUrlData('userid');
+			var title=$('#main .title').val(),
+				content=$('#main .content').html(),
+//				link_=$('#submit .link').val(),
+				type=parseInt($('#submit .type').val()),    //0或未填设为没有图片吧
+				manger=$('#submit .name').val(),
+				psd=$('#submit .psd').val(),
+				from_=userid?userid:'';
+			if(!title || !content || !type || !manger || !psd){
+				COM.warn('请将信息填写完整');return;
+			}
+			//console.log(type);
+			var links=[];
+			var imgs=$('#main .content img');
+			var imgsL=imgs.length;
+			for(var i=0;i<imgsL;i++){
+				
+			}
+			if(type<0 || type>3){COM.warn('类型选择有误');return;}
+			var url=headUrl+'/edit_post',
+				data={
+					title:title,
+					content:content,
+					links:links,
+//					links:link_,
+					type:type,
+					manger:manger,
+					psd:psd,
+					userid:from_
+				};
+			//val  是字符串
+			//console.log(manger+1);
+			var out=COM.ajax(url,data,'post');  console.log(out);	
+			if(out!='error'){
+				if(out.suc){
+					COM.warn('提交成功');
+//					var lists=out.rs;
+//					if(lists.length){
+//						//巴拉巴拉巴拉
+//					}else{
+//						COM.warn('没有更多数据');
+//					}
+				}else{
+					COM.warn(out.msg+'!');
+				}
+			}else{
+				COM.warn('请求出错');
+			}
+		});
+	</script>
+</html>

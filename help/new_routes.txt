@@ -1,0 +1,29 @@
+Edit————(db:articles)
+	Edit_a:编辑文章，仅文字
+	参数:
+		title:标题,con:内容,id:标识
+	路由:
+		Edit_a_submit:提交
+		Edit_a_get:获取	
+		Edit_a_refresh:刷新
+		Edit_a_single:详情
+		edit_cmt_sub:评论提交
+		edit_cmt_see:评论查看
+		收藏
+		分享到
+		
+login & register————(db:users)
+	路由:
+		login.hhl:登录
+			参数:
+				phone:电话,psd:密码
+		isRegistered:检测是否注册
+			参数:
+				phone:电话
+			返回:
+				res:0-已注册     1-未注册
+		register:注册
+			参数:
+				phone:电话,psd:密码,code:验证码
+									
+		

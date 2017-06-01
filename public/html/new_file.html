@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<aaa></aaa>
+		</div>
+		<template id="aaa">
+			1231
+			<bbb></bbb>
+		</template>
+	</body>
+	<script src="../js/vue/vue.min.js"></script>
+	<script type="text/javascript">
+		var box=new Vue({
+			el:'#box',
+			data:{
+				
+			},
+			methods:{
+				
+			},
+			components:{
+				aaa:{
+					template:'#aaa',
+					components:{
+						bbb:{
+							templat:'<h3>这是子组件bbb--{{m}}</h3>'
+						}
+					}
+				}
+			}
+		});
+	</script>
+</html>

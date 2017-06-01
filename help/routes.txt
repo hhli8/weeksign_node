@@ -1,0 +1,12 @@
+edit_manager.js
+	主页文章编辑
+getback_psd.js
+	找回密码
+isRegistered.js
+	是否注册
+imgUp.js
+	上传图片
+login.js
+	登录
+register.js
+	注册
